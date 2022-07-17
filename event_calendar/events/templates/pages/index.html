@@ -1,0 +1,45 @@
+{% extends 'pages/layout.html' %}
+{% load static %}
+
+{% block content %}
+<div class="title text-center mt-5">
+    <h1>    
+        Welcome back {{ user_data.name}} {{ user_data.last_name}}!
+    </h1>
+</div>
+
+<div class="row d-flex justify-content-center mt-5">
+    <!--Grid column-->
+    <div class="col-md-6">
+        <ol class="list-group list-group-light list-group-numbered"> 
+            {% for item in details %}
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div class="ms-2 me-auto">
+                        <a href="{% url 'calendar:details' item.id %}">
+                        <div class="fw-bold">{{ item.name }}</div>
+                        {{ item.description }}
+                    </a>
+                    </div>
+                <div class="ms-2 me-auto">
+                    <div class="fw-bold">{{ item.starts_at }}</div>
+                </div>
+                <div>
+                    
+                    <!-- split primary button -->
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-light" data-mdb-ripple-color="light">Options</button>
+                        <button type="button" class="btn btn-light dropdown-toggle dropdown-toggle-split" data-mdb-toggle="dropdown" aria-expanded="false">
+                        <span class="visually-hidden">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{% url 'calendar:update' item.id %}">Update</a></li>
+                        <li><a class="dropdown-item" href="{% url 'calendar:delete' item.id %}">Delete</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+        </ol>
+    </div>
+</div>
+{% endblock %}

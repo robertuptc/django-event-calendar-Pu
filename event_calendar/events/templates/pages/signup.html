@@ -1,0 +1,37 @@
+{% extends 'pages/layout.html' %}
+
+{% block content %}
+<div class="container container-sm mt-4">
+    <form class="row g-3">
+        <div class="col-md-4">
+            <label for="validationServer01" class="form-label">First name</label>
+            <input type="text" class="form-control is-valid" id="first-name" value="robert" required>
+
+        </div>
+        <div class="col-md-4">
+            <label for="validationServer02" class="form-label">Last name</label>
+            <input type="text" class="form-control is-valid" id="last-name" value="puentes"required>
+
+        </div>
+        <div class="col-md-4">
+            <label for="validationServerUsername" class="form-label">Email</label>
+            <div class="input-group has-validation">
+                <input type="email" class="form-control is-invalid" id="email"
+                    aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" value="robert@mail.com" required>
+
+            </div>
+        </div>
+        <div class="col-md-4">
+            <label for="validationServerUsername" class="form-label">Password</label>
+            <div class="input-group has-validation">
+                <input type="password" class="form-control is-invalid" id="password"
+                    aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" value="1234" required>
+
+            </div>
+        </div>
+        <div class="col-12">
+            <button class="btn btn-primary" type="submit" onclick="signUp(event)">Create Account</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

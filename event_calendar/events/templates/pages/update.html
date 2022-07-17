@@ -1,0 +1,37 @@
+{% extends 'pages/layout.html' %}
+
+{% block content%}
+<div class="text-center m-5">
+    <h1>Update Event</h1>
+</div>
+
+<div class="new-event-container container-sm">
+    <form>
+        <div class="row mb-3">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="update-name" value="{{ event_by_id.name }}">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Description</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="update-description" value="{{ event_by_id.description }}">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="inputEmail3" class="col-sm-2 col-form-label">Starts at</label>
+            <div class="col-sm-10">
+                <input type="datetime-local" class="form-control" id="update-starts-at" value="{{ event_by_id.starts_at|date:'Y-m-d' }}T{{event_by_id.ends_at|time:'H:i:s'}}">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="inputPassword3" class="col-sm-2 col-form-label">Ends at</label>
+            <div class="col-sm-10">
+                <input type="datetime-local" class="form-control" id="update-ends-at" value="{{ event_by_id.ends_at|date:'Y-m-d' }}T{{event_by_id.ends_at|time:'H:i:s'}}">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary" onclick="updateEvent(event)">Update</button>
+    </form>
+</div>
+{% endblock %}
